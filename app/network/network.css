@@ -1,0 +1,48 @@
+.family-bar { position:relative; z-index:60; display:flex; flex-wrap:wrap; align-items:center; gap:16px; padding:12px 4.5vw; color:#f5f2e9; background:#122a3d; border-bottom:3px solid #bf493b; font-size:14px; }
+.family-home { color:inherit; text-decoration:none; font-weight:700; letter-spacing:.08em; }
+.family-home span { display:block; font-size:12px; font-weight:400; letter-spacing:0; margin-top:4px; }
+.family-current { margin-left:auto; color:#d4dde5; }
+.family-switch summary { cursor:pointer; padding:10px 14px; border:1px solid #8194a5; border-radius:4px; list-style:none; }
+.family-switch summary::-webkit-details-marker { display:none; }
+.family-switch summary:focus-visible { outline:3px solid #f0ce78; outline-offset:3px; }
+.family-menu { position:absolute; top:100%; right:4.5vw; width:min(600px,91vw); max-height:75vh; overflow:auto; padding:20px; display:grid; grid-template-columns:1fr 1fr; gap:8px; border:1px solid var(--line); box-shadow:0 18px 45px #0005; background:var(--cream); color:var(--ink); }
+.family-menu>p,.family-menu .family-all { grid-column:1/-1; }
+.family-menu>p { margin:0 0 10px; }
+.family-menu a { color:inherit; padding:12px; border:1px solid var(--line); text-decoration:none; border-radius:4px; }
+.family-menu a:hover,.family-menu a[aria-current="page"] { border-color:var(--oxide); background:var(--paper-deep); }
+.family-menu a span { display:block; margin-top:5px; color:var(--muted); font-size:12px; line-height:1.4; }
+.family-page { max-width:1440px; margin:auto; padding:48px 4.5vw 100px; }
+.family-intro { display:block; background:none; padding:0; }
+.family-intro>span,.family-practice>div>span { font:500 12px var(--font-mono); letter-spacing:.12em; color:var(--oxide); }
+.family-intro h1 { font:500 clamp(40px,5vw,70px)/1.04 var(--font-display); margin:18px 0; letter-spacing:-.025em; }
+.family-intro em { font-weight:400; }
+.family-intro p { max-width:66ch; font-size:17px; line-height:1.7; }
+form.family-context { display:grid; grid-template-columns:1fr auto; gap:12px; margin:30px 0; padding:24px; border:1px solid var(--line); background:var(--cream); }
+form.family-context label { grid-column:1/-1; font-size:14px; font-weight:600; }
+form.family-context select { min-width:0; width:100%; padding:12px; border:1px solid var(--line); background:var(--paper); color:var(--ink); font:inherit; }
+form.family-context button { padding:12px 20px; background:var(--ink); color:var(--cream); border:0; cursor:pointer; }
+form.family-context p { grid-column:1/-1; margin:0; font-size:14px; line-height:1.6; color:var(--muted); }
+.family-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.family-card { --family-accent:#456c82; display:flex; flex-direction:column; padding:26px; background:var(--cream); border:1px solid var(--line); border-top:4px solid var(--family-accent); }
+.family-manx,.family-discovery,.family-earth { --family-accent:#ba4d3f; }
+.family-mannin { --family-accent:#25a57b; }
+.family-doctoral,.family-context,.family-insolvency { --family-accent:#806caa; }
+.family-card-top { display:flex; align-items:center; gap:12px; font-size:13px; }
+.family-mark { display:grid; place-items:center; width:44px; height:44px; flex-shrink:0; border:1px solid var(--line); font:600 22px var(--font-display); }
+.family-card h2 { font:600 30px/1.1 var(--font-display); margin:24px 0 10px; }
+.family-card p { font-size:16px; line-height:1.65; margin:0 0 18px; }
+.family-card .family-voice { font-size:14px; color:var(--muted); }
+.family-card small { margin-top:auto; font-size:12px; line-height:1.6; }
+.family-card>a { display:flex; justify-content:space-between; gap:10px; color:var(--ink); padding-top:18px; margin-top:18px; border-top:1px solid var(--line); text-decoration:none; font-weight:600; font-size:14px; }
+.family-card .family-local-note { font-size:12px; margin:16px 0 0; color:var(--muted); }
+.family-practice { display:grid; grid-template-columns:1fr 1.2fr; gap:50px; padding:64px 0; margin-top:40px; border-top:1px solid var(--line); }
+.family-practice h2,.family-resources h2 { font:500 38px/1.1 var(--font-display); }
+.family-practice p,.family-resources p { font-size:16px; line-height:1.7; }
+.family-practice ol { padding-left:24px; margin:0; }
+.family-practice li { padding-left:12px; margin-bottom:24px; }
+.family-practice h3 { font-size:17px; margin:0 0 8px; }
+.family-practice li p { margin:0; }
+.family-resources { border-top:1px solid var(--line); padding-top:24px; }
+.family-resources a { color:var(--oxide); }
+@media(max-width:1000px) { .family-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .family-current { display:none; } .family-switch { margin-left:auto; } }
+@media(max-width:620px) { .family-grid,.family-practice { grid-template-columns:1fr; } form.family-context { grid-template-columns:1fr; } form.family-context button { width:100%; } .family-menu { grid-template-columns:1fr; } .family-page { padding-top:28px; } .family-practice { gap:24px; } .family-home { font-size:12px; } }

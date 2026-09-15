@@ -1,0 +1,129 @@
+/* Mannin's voice surface: quiet terminal typography, precise live words. */
+:root { --muted: #91a79b; }
+.top { max-width: 1240px; margin: auto; padding: 1.45rem 2rem; background: none; border-bottom: 0; }
+.crest { box-shadow: none; border-color: #254a37; }
+.top h1 { font-weight: 500; }
+.voiceSettings>summary { border: 0; }
+.mannin-family { background: #080a0a; border-color: #1e2a24; padding-block: .5rem; font-family: var(--mono); font-size: .75rem; }
+.mannin-family>a span { display: inline; margin-left: .8rem; font-size: .7rem; }
+.mannin-family summary { border: 0; min-height: 44px; display: list-item; }
+.mani-navigation { padding-block: 0; }
+.layout { grid-template-columns: 280px minmax(0,1fr); gap: 3.5rem; max-width: 1240px; padding: 2.7rem 2rem; }
+.voicePanel { max-height: none; overflow: visible; gap: .9rem; padding: 1.2rem 0; border: 0; border-radius: 0; background: none; }
+.voiceIntro .eyebrow { margin: 0; font-size: .7rem; letter-spacing: .09em; }
+.voicePanel .orb { width: 268px; height: 314px; min-height: 314px; flex: 0 0 314px; display: block; padding: 0; margin: 0; }
+.voicePanel .mani-art { position: absolute; width: 268px; height: 268px; top: 0; left: 0; }
+.voicePanel .orb .label { display: grid; place-items: center; bottom: 0; left: 0; right: 0; width: 100%; height: 40px; padding: .35rem; border: 0; background: none; font-size: .9rem; white-space: nowrap; letter-spacing: 0; }
+.voicePanel .orb.listening .label::before { display: none; }
+.voiceFeedback { gap: .65rem; }
+.voiceHint { font-size: .78rem; line-height: 1.7; margin: 0 0 .4rem; }
+.listeningOptions,.voicePanel .brain { width: 100%; margin: 0; border: 0; background: none; }
+.listeningOptions>summary,.voicePanel .brain>summary { cursor: pointer; min-height: 44px; padding: .7rem .2rem; font-size: .8rem; color: var(--muted); }
+.listeningOptionsBody { display: grid; gap: .8rem; padding: .6rem .2rem; }
+.listeningEnabled { display: none; color: #7dffc4; margin-left: .5rem; }
+.listeningOptions:has(input:checked) .listeningEnabled { display: inline; }
+.wakeControl { display: flex; align-items: center; gap: .7rem; min-height: 44px; text-align: left; color: #d3f5e1; font-size: .9rem; line-height: 1.4; cursor: pointer; }
+.wakeControl small { display: block; font-size: .8rem; color: #9bad9f; }
+.wakeControl input { width: 1.15rem; height: 1.15rem; min-height: 0; margin: 0; accent-color: #7dffc4; flex: none; }
+.wakeStatus,.voicePrivacy { margin: 0; text-align: left; font-size: .8rem; line-height: 1.5; color: #a3b7ab; }
+.voicePrivacy summary { cursor: pointer; min-height: 44px; padding: .6rem 0; }
+.voicePrivacy p { margin: .4rem 0; }
+.workspaceContext { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; }
+.scopeBar { border: 0; padding: .65rem 0; background: none; font-size: .8rem; }
+.historyDrawer { position: relative; margin-left: auto; }
+.historyDrawer>summary,.suggestionDrawer>summary { cursor: pointer; color: var(--muted); font-size: .8rem; min-height: 44px; padding: .65rem 0; }
+.historyDrawer[open] { flex-basis: 100%; }
+.historyDrawer[open]>summary { text-align: right; }
+.conversationHistory { padding: .8rem 0; }
+.conversationHistory select { width: 100%; }
+.conversationHistory span { font-size: .8rem; }
+.stage { gap: 1.2rem; }
+.conversationIntro h2 { font-family: var(--mono); font-size: clamp(1.45rem,2.3vw,2rem); font-weight: 400; margin: 0; line-height: 1.4; letter-spacing: -.04em; overflow-wrap: anywhere; }
+.voiceConsole { position: relative; isolation: isolate; overflow: hidden; min-width: 0; border: 0; border-left: 1px solid #305842; border-radius: 0; background: linear-gradient(90deg,#0c1811a0,transparent); margin: .45rem 0; padding: 1.05rem 1.4rem; }
+.voiceConsoleHeading { display: flex; justify-content: space-between; gap: 1rem; font: 400 .7rem/1.5 var(--mono); letter-spacing: .07em; color: #91aa9a; }
+.voiceConsole .heard { position: relative; margin: .9rem 0 .2rem; padding: 0; height: 4.8em; overflow-y: auto; text-align: left; font: 400 clamp(1.1rem,1.65vw,1.4rem)/1.6 var(--mono); color: #98b7a5; overflow-wrap: anywhere; white-space: pre-wrap; scrollbar-color: #346c54 transparent; scrollbar-width: thin; }
+.voiceConsole .heard .final { color: #d3ffe4; }
+.voiceConsole .heard .interim { color: #58ee9b; }
+.voiceConsole[data-state="listening"] { border-left-color: #70ffc0; }
+.voiceConsole[data-state="listening"] .voiceConsoleHeading { color: #a4f1c6; }
+.voiceConsole[data-state="listening"] .heard { text-shadow: 0 0 12px #00ff9920; }
+.voiceConsole[data-state="listening"] .heard::after { content: "▌"; color: #7dffc4; animation: voice-cursor 1.2s steps(2,end) infinite; }
+.voiceConsole[data-state="thinking"] { border-left-color: #558e72; }
+.voiceConsole[data-state="wake"] { border-left-color: #cfad64; }
+@keyframes voice-cursor { 50% { opacity: .3; } }
+.questionRow { border-radius: 4px; background: #0e1410; box-shadow: none; padding: .35rem; }
+.askForm textarea { padding: .75rem; font-size: .95rem; }
+.askForm button[type=submit] { border-radius: 3px; background: #92e9b8; border-color: #92e9b8; padding-inline: 1.1rem; }
+.questionTools button { font-size: .8rem; }
+.suggestionDrawer { margin-top: -.65rem; }
+.quickActions { padding-block: .5rem; }
+.quickActions button { border-radius: 3px; }
+.stage .liveStatus { font-size: .8rem; text-align: left; min-height: 1.5em; margin: 0; color: var(--muted); }
+.transcriptHeading { display: flex; justify-content: space-between; gap: 1rem; font-size: .75rem; color: var(--muted); padding-block: .75rem; border-bottom: 1px solid var(--line); }
+.stage:not(:has(.turn)) .transcriptHeading { display: none; }
+.turn { background: none; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .5rem 0 1.8rem; }
+.turn.incomplete { border-bottom-color: #a76c54; }
+.turn .q { font-weight: 400; margin-bottom: 1rem; }
+.turn .a { font-family: var(--mono); font-size: 1rem; line-height: 1.85; }
+.reviewRecord { display: none; margin-top: .8rem; }
+.reviewRecord:has(.reviewSummary:not(.hidden)) { display: block; }
+.reviewRecord>summary { cursor: pointer; color: #b4cbbb; font-size: .8rem; padding: .6rem 0; }
+.activityProgress { padding: .3rem 0 .3rem 1rem; border: 0; border-left: 1px solid #365b46; border-radius: 0; background: none; }
+.activityHeading { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.activityVoice { display: none; }
+.activityList { gap: .5rem; }
+.activityLine { font-size: .9rem; color: #c0e4ce; margin: .2rem 0; }
+.activityElapsed { color: #97ac9f; font-size: .8rem; }
+.activityNote { color: #a9bdaf; line-height: 1.6; }
+.activityRow details { color: var(--muted); }
+.activityRow summary { min-height: 44px; padding: .65rem 0; }
+.activityRow+.activityRow { border-color: var(--line); }
+@media(prefers-reduced-motion:reduce) { body:not(:has(#orb[data-mani-motion="full"])) .voiceConsole .heard::after,body:not(:has(#orb[data-mani-motion="full"])) .turn .a.streaming::after { animation: none !important; } }
+body:has(#orb[data-mani-motion="reduced"]) .voiceConsole .heard::after,
+body:has(#orb[data-mani-motion="reduced"]) .turn .a.streaming::after { animation: none; }
+@media(min-width:801px) and (max-height:760px) { .voicePanel { position: static; } }
+@media(max-width:800px) {
+ .top { padding: 1rem; }
+ .layout { grid-template-columns: minmax(0,1fr); padding: 1rem 1.25rem; gap: 1rem; }
+ .voicePanel { position: static; display: grid; grid-template-columns: 150px minmax(0,1fr); gap: .4rem 1rem; align-items: center; padding: 0; }
+ .voiceIntro { display: none; }
+ .voicePanel .orb { grid-column: 1; grid-row: 1 / span 2; width: 150px; height: 194px; min-height: 194px; }
+ .voicePanel .mani-art { width: 150px; height: 150px; }
+ .voicePanel .voiceFeedback { grid-column: 2; grid-row: 1; }
+ .voicePanel .voiceHint { font-size: .75rem; text-align: left; }
+ .voicePanel .motionNotice { grid-column: 1 / -1; }
+ .voicePanel .brain { grid-column: 2; grid-row: 2; border: 0; }
+ .voicePanel .brain>summary { padding-block: .4rem; }
+ .stage { gap: .9rem; }
+ .voiceConsole { padding: .85rem 1rem; }
+ .voiceConsole .heard { height: 4.8em; }
+}
+@media(max-width:480px) {
+ .mannin-family { padding-inline: 1rem; gap: .3rem; }
+ .mannin-family>a span,.mannin-family>span { display: none; }
+ .voicePanel { grid-template-columns: 112px minmax(0,1fr); gap: .4rem 1rem; }
+ .voicePanel .orb { width: 112px; height: 156px; min-height: 156px; }
+ .voicePanel .mani-art { width: 112px; height: 112px; }
+ .voicePanel .orb .label { font-size: .76rem; white-space: normal; line-height: 1.3; }
+ .voicePanel .voiceHint { display: block; }
+ .workspaceContext { gap: .2rem; }
+ .scopeBar span { display: block; font-size: .7rem; }
+ .historyDrawer>summary { font-size: .75rem; }
+ .voiceConsoleHeading { font-size: .65rem; }
+ .conversationIntro h2 { font-size: 1.4rem; }
+ .turn .a { font-size: .95rem; }
+}
+/* Keep the workspace aligned with the brand; reduce the phone's voice dock. */
+@media(min-width:801px) { .mani-navigation { padding-inline: max(2rem,calc((100vw - 1176px)/2)); } }
+
+/* The same update remains in the polite live region, without a duplicate line. */
+.stage:has(#activityProgress:not([hidden])) .liveStatus.activityEcho { position: absolute; width: 1px; height: 1px; min-height: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Keep long drafts readable without crowding the voice console. */
+.askForm textarea { resize: vertical; min-height: 4rem; max-height: 18rem; line-height: 1.5; }
+.questionRow { align-items: flex-end; }
+.questionHelp { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; margin: .4rem .25rem 0; color: var(--muted); font-size: .75rem; }
+#askCount { margin-left: auto; white-space: nowrap; font-variant-numeric: tabular-nums; }
+#askCount[data-over-limit="true"], .questionError { color: var(--red); }
+.questionError { margin: .4rem .25rem; font-size: .85rem; }
+.askForm textarea[aria-invalid="true"] { outline: 1px solid var(--red); }

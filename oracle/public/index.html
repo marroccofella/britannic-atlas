@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mannin — the oracle for the Isle of Man</title>
+  <meta name="description" content="Mannin is the oracle for the Isle of Man. Ask by voice or text, explore the island, and request a source check or second opinion when needed." />
+  <meta name="author" content="42.uk" />
+  <meta name="theme-color" content="#080a0a" />
+  <link rel="canonical" href="https://42.uk/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="42.uk" />
+  <meta property="og:title" content="Mannin — the oracle for the Isle of Man" />
+  <meta property="og:description" content="Ask aloud about the Isle of Man. Mannin answers in a British voice, cites official Manx sources, and shows several independent models reviewing the answer." />
+  <meta property="og:url" content="https://42.uk/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mannin — a Manx-first spoken answer engine" />
+  <meta name="twitter:description" content="The oracle for the Isle of Man. Voice, conversation, maps and optional source checks." />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Mannin","applicationCategory":"ReferenceApplication","operatingSystem":"Any modern browser","inLanguage":"en-GB","description":"The oracle for the Isle of Man with optional source checks and multi-model peer review.","about":{"@type":"Place","name":"Isle of Man"},"isPartOf":{"@type":"WebSite","name":"42.uk","url":"https://42.uk/"},"publisher":{"@type":"Organization","name":"42.uk","url":"https://42.uk/"},"creditText":"Powered by Promptus"}
+  </script>
+  <link rel="icon" href="/mani-triskelion.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/mani-feedback.css" />
+  <link rel="stylesheet" href="/family-navigation.css" />
+  <link rel="stylesheet" href="/voice-console.css" />
+  <link rel="stylesheet" href="/discovery/explorer.css" />
+</head>
+<body>
+  <nav class="mannin-family" aria-label="British world app family">
+    <a href="https://britannica-atlas.marroccofella.chatgpt.site/network?place=isle-of-man" target="_blank" rel="noopener noreferrer">THE BRITISH WORLD <span>Apps &amp; knowledge ↗</span></a>
+    <span>Mannin · Isle of Man</span>
+    <details><summary>Connected libraries</summary><div>
+      <p>Your conversation stays here. Atlas libraries open in a new tab and may require sign-in.</p>
+      <a href="https://britannica-atlas.marroccofella.chatgpt.site/manx" target="_blank" rel="noopener noreferrer">MANX · Island research guides</a>
+      <a href="https://britannica-atlas.marroccofella.chatgpt.site/questions?jurisdiction=Isle%20of%20Man" target="_blank" rel="noopener noreferrer">Answer library · Isle of Man</a>
+      <a href="https://britannica-atlas.marroccofella.chatgpt.site/knowledge/isle-of-man" target="_blank" rel="noopener noreferrer">Knowledge library · Island dossier</a>
+      <a href="https://britannica-atlas.marroccofella.chatgpt.site/doctoral" target="_blank" rel="noopener noreferrer">Doctoral research · Comparative law</a>
+      <a href="https://britannica-atlas.marroccofella.chatgpt.site/network?place=isle-of-man" target="_blank" rel="noopener noreferrer">All apps, territories and shared principles</a>
+    </div></details>
+  </nav>
+  <header class="top">
+    <div class="brand">
+      <span class="crest" aria-hidden="true">◆</span>
+      <div>
+        <h1>Mannin</h1>
+        <p class="tag">The oracle for the Isle of Man</p>
+        <span id="runtime" class="pill" title="Which harness and models generate and review answers">runtime…</span>
+      </div>
+    </div>
+    <details class="voiceSettings">
+      <summary><span class="settingsLabel">Voice &amp; settings</span><span class="connectionAlert" role="status">Offline · settings</span></summary>
+      <div class="controls">
+      <label class="ctl">Voice
+        <select id="voice" title="British male voices are listed first"></select>
+      </label>
+      <label class="ctl toggle"><input id="allVoices" type="checkbox" /> Show all installed voices</label>
+      <p class="voiceDisclaimer">English speech uses your browser's voices; a native Manx Gaelic voice is not provided.</p>
+      <label class="ctl">Pace <input id="rate" type="range" min="0.7" max="1.3" step="0.05" value="1" /></label>
+      <label class="ctl toggle"><input id="spokenProgress" type="checkbox" checked /> Speak short progress updates</label>
+      <p class="voiceDisclaimer">Short spoken updates are on by default. They pause while you speak or an answer is playing. Turn them off if your screen reader already announces progress.</p>
+      <label class="ctl toggle"><input id="speakLearned" type="checkbox" checked /> Read completed research aloud</label>
+      <label class="ctl">Motion
+        <select id="motionPreference" title="Legs respond to your voice; rotation means thinking; the central ring means speaking. Auto follows your system setting.">
+          <option value="auto">Auto (follow system)</option>
+          <option value="on">Always animate</option>
+          <option value="off">Never animate</option>
+        </select>
+      </label>
+      <span id="health" class="pill">connecting…</span>
+      </div>
+    </details>
+  </header>
+
+  <nav class="mani-navigation" aria-label="Mannin workspace">
+    <a href="#talk" data-mani-view="talk" aria-current="page">Talk to Mannin</a>
+    <a href="#explore=isle-of-man" data-mani-view="explore">Explore the island</a>
+    <a href="https://britannica-atlas.marroccofella.chatgpt.site/manx/earth" target="_blank" rel="noopener noreferrer" title="Opens Atlas in a new tab; sign-in may be required. The Map button below also offers public map providers.">Map &amp; places ↗</a>
+    <a href="https://britannica-atlas.marroccofella.chatgpt.site/manx#modules" target="_blank" rel="noopener noreferrer" title="Opens Atlas in a new tab; sign-in may be required.">Research guides ↗</a>
+  </nav>
+  <main class="layout" id="conversationWorkspace">
+    <aside class="voicePanel" aria-label="Mannin voice companion">
+      <div class="voiceIntro"><p class="eyebrow">Your island companion</p></div>
+      <button id="orb" class="orb idle" type="button" aria-label="Start listening" aria-pressed="false" aria-describedby="voiceHint">
+        <svg class="mani-art" viewBox="-640 -640 1280 1280" aria-hidden="true" focusable="false">
+          <defs>
+            <image id="mani-source" href="/mani-triskelion.svg" x="-620" y="-620" width="1240" height="1240"/>
+            <clipPath id="mani-leg-a" clipPathUnits="userSpaceOnUse"><path d="M0 0 L-940 -342 A1000 1000 0 0 1 643 -766 Z"/></clipPath>
+            <clipPath id="mani-leg-b" clipPathUnits="userSpaceOnUse"><path d="M0 0 L643 -766 A1000 1000 0 0 1 342 940 Z"/></clipPath>
+            <clipPath id="mani-leg-c" clipPathUnits="userSpaceOnUse"><path d="M0 0 L342 940 A1000 1000 0 0 1 -940 -342 Z"/></clipPath>
+            <clipPath id="mani-hub" clipPathUnits="userSpaceOnUse"><circle r="145"/></clipPath>
+            <mask id="mani-outside-hub" maskUnits="userSpaceOnUse" x="-640" y="-640" width="1280" height="1280"><rect x="-640" y="-640" width="1280" height="1280" fill="white"/><circle r="145" fill="black"/></mask>
+            <radialGradient id="maniAmbient">
+              <stop stop-color="#00ff99" stop-opacity=".1"/>
+              <stop offset=".65" stop-color="#00ff99" stop-opacity=".025"/>
+              <stop offset="1" stop-color="#00ff99" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="maniHalo">
+              <stop stop-color="#a5ffd8" stop-opacity=".92"/>
+              <stop offset=".2" stop-color="#00ff99" stop-opacity=".65"/>
+              <stop offset=".52" stop-color="#00ff99" stop-opacity=".18"/>
+              <stop offset="1" stop-color="#00ff99" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="maniLens" cx="36%" cy="30%" r="75%">
+              <stop stop-color="#b4ffdf"/>
+              <stop offset=".22" stop-color="#32d799"/>
+              <stop offset=".65" stop-color="#0c6848"/>
+              <stop offset="1" stop-color="#041a13"/>
+            </radialGradient>
+            <!-- Feedback comes from the same traced artwork, not an approximate outline. -->
+            <filter id="maniTraceGlow" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+              <feMorphology in="SourceAlpha" operator="dilate" radius="1.6" result="traceEdge"/>
+              <feGaussianBlur in="traceEdge" stdDeviation="2.4" result="traceHalo"/>
+              <feFlood flood-color="#a5ffd8"/>
+              <feComposite in2="traceHalo" operator="in"/>
+            </filter>
+          </defs>
+          <circle class="mani-ambient" r="615" fill="url(#maniAmbient)"/>
+          <g class="mani-guides" fill="none" stroke="currentColor">
+            <circle r="605" stroke-width="2" stroke-dasharray="3 23"/>
+            <circle r="572" stroke-width="1.5" stroke-dasharray="145 1053" transform="rotate(-90)"/>
+            <path d="M0-625v18 M625 0h-18 M0 625v-18 M-625 0h18" stroke-width="3"/>
+          </g>
+          <!-- Paint the halo below the crisp trace: light escapes its edges without washing out the detail. -->
+          <g class="mani-rotor">
+            <use class="mani-outline" href="#mani-trace" filter="url(#maniTraceGlow)"/>
+            <g id="mani-trace">
+              <g class="mani-leg"><use href="#mani-source" clip-path="url(#mani-leg-a)" mask="url(#mani-outside-hub)"/></g>
+              <g class="mani-leg"><use href="#mani-source" clip-path="url(#mani-leg-b)" mask="url(#mani-outside-hub)"/></g>
+              <g class="mani-leg"><use href="#mani-source" clip-path="url(#mani-leg-c)" mask="url(#mani-outside-hub)"/></g>
+              <use href="#mani-source" clip-path="url(#mani-hub)"/>
+            </g>
+            <g class="mani-zone mani-zone-a" transform="translate(-23 -289)"><circle class="mani-zone-halo" r="110" fill="url(#maniHalo)"/><circle class="mani-zone-ring" r="50"/><circle class="mani-zone-light" r="36"/></g>
+            <g class="mani-zone mani-zone-b" transform="translate(280 117)"><circle class="mani-zone-halo" r="110" fill="url(#maniHalo)"/><circle class="mani-zone-ring" r="50"/><circle class="mani-zone-light" r="36"/></g>
+            <g class="mani-zone mani-zone-c" transform="translate(-267 147)"><circle class="mani-zone-halo" r="110" fill="url(#maniHalo)"/><circle class="mani-zone-ring" r="50"/><circle class="mani-zone-light" r="36"/></g>
+          </g>
+          <circle class="mani-aura" r="300" fill="url(#maniHalo)"/>
+          <circle class="mani-bloom" r="108" fill="url(#maniHalo)"/>
+          <g class="mani-core">
+            <circle r="55" fill="#061910" stroke="#72e8af" stroke-width="2"/>
+            <circle r="47" fill="url(#maniLens)"/>
+            <circle class="mani-light" r="46" fill="#beffe4"/>
+            <ellipse cx="-10" cy="-13" rx="11" ry="6" fill="#e4fff2" opacity=".38" transform="rotate(-30)"/>
+          </g>
+          <circle class="mani-speech-ring" r="165" fill="none" stroke="#7dffc4" stroke-width="2"/>
+          <g class="mani-sectors"><path class="mani-sector-a" d="M0-183 A183 183 0 0 1 171 65"/><path class="mani-sector-b" d="M0-183 A183 183 0 0 1 171 65" transform="rotate(120)"/><path class="mani-sector-c" d="M0-183 A183 183 0 0 1 171 65" transform="rotate(240)"/></g>
+        </svg>
+        <span class="label" id="orbLabel">Tap to speak</span>
+      </button>
+      <button type="button" id="enableMotion" class="motionNotice">Motion reduced · enable animation</button>
+      <div class="voiceFeedback">
+      <p id="voiceHint" class="voiceHint">Click to talk · click again to send<br>Hold Space to talk · Esc to stop</p>
+      <details class="listeningOptions"><summary>Listening options <span class="listeningEnabled">On</span></summary><div class="listeningOptionsBody">
+      <label class="wakeControl"><input id="conversation" type="checkbox" aria-describedby="keepListeningHint" /><span>Keep listening<small id="keepListeningHint">Continue after each reply</small></span></label>
+      <label class="wakeControl"><input id="wakeListening" type="checkbox" aria-describedby="wakePrivacy" /><span>Wake on “Hey Mannin”<small>Also “Hey money”</small></span></label>
+      <p id="wakeStatus" class="wakeStatus">Wake listening off · click to speak</p>
+      <details class="voicePrivacy"><summary>Microphone &amp; privacy</summary><p id="wakePrivacy">Opt-in for this visit, in this visible tab only. Your browser’s speech service may process audio online. Wake listening pauses during replies; Esc turns it off.</p></details>
+      </div></details>
+      </div>
+      <details class="brain">
+        <summary>Evidence &amp; diagnostics</summary>
+        <div class="brainBody">
+          <h2>Evidence and research</h2>
+          <div id="stats" class="stats"></div>
+          <h3>Focus for the last answer <span class="muted" id="coverage"></span></h3>
+          <ol id="focus" class="focus"></ol>
+          <h3>Expeditions <button id="dream" class="mini" title="Let the Mannin pick something to go and learn about">Dream</button></h3>
+          <ul id="feed" class="feed"></ul>
+          <h3>Recently learned</h3>
+          <ul id="learned" class="learned"></ul>
+        </div>
+      </details>
+    </aside>
+    <section class="stage" aria-labelledby="conversationTitle">
+      <div class="workspaceContext"><p class="scopeBar"><strong id="scopeLabel">Isle of Man</strong> <span>· Manx sources first</span></p>
+      <details class="historyDrawer"><summary>Conversations</summary><div class="conversationHistory"><label class="srOnly" for="conversationHistory">Conversations</label><select id="conversationHistory" aria-label="Open a saved conversation"><option>Loading history…</option></select><span id="historyStatus" role="status"></span></div></details></div>
+      <div class="conversationIntro"><h2 id="conversationTitle">What would you like to know?</h2></div>
+      <section id="voiceConsole" class="voiceConsole" aria-label="Live voice transcript" data-state="idle">
+        <div class="voiceConsoleHeading"><span>Live transcript</span><span id="voiceConsoleState">READY</span></div>
+        <p id="heard" class="heard">Tap Mannin to talk.</p>
+      </section>
+      <section id="discoveryDraft" class="discovery-draft" aria-label="Prepared discovery question" hidden>
+        <strong id="discoveryDraftLabel"></strong><span>Edit the question below, then press Ask.</span>
+        <div><button id="returnToTopic" type="button">Back to this topic</button><button id="restoreDiscoveryDraft" type="button" hidden>Restore my previous draft</button><button id="dismissDiscoveryDraft" type="button">Dismiss note</button></div>
+      </section>
+      <section id="activityProgress" class="activityProgress" aria-label="Current activity" hidden></section>
+      <form id="askForm" class="askForm">
+        <label class="srOnly" for="askText">Type a question</label>
+        <div class="questionRow"><textarea id="askText" rows="2" placeholder="Ask about the Isle of Man…" autocomplete="off" aria-describedby="askHint askCount askError"></textarea><button type="submit">Ask <span aria-hidden="true">↗</span></button></div>
+        <div class="questionHelp"><span id="askHint">Enter to send · Shift+Enter for a new line</span><span id="askCount">0 / 12,000 characters</span></div>
+            <p id="askError" class="questionError" role="status" hidden></p>
+            <div class="questionTools" role="group" aria-label="Conversation controls">
+          <button type="button" id="deeper" title="Send the last question on a full expedition: web research, adversarial check, cross-model review and lateral thinking">Go deeper</button>
+          <button type="button" id="stop" title="Stop speaking or the current answer (Esc)">Stop</button>
+          <button type="button" id="newConversation" title="Start a new conversation; this chat stays in history">New conversation</button>
+        </div>
+      </form>
+      <details class="suggestionDrawer"><summary>Ideas to explore</summary><div class="quickActions" aria-label="Popular Manx requests">
+        <button type="button" data-question="Give me an overview of the Isle of Man">Island overview</button>
+        <button type="button" data-question="Tell me about Isle of Man infrastructure">Infrastructure</button>
+        <button type="button" data-question="Show me a map of the Isle of Man">Map</button>
+        <button type="button" data-question="Explain Isle of Man companies and law">Companies and law</button>
+        <button type="button" data-question="Make a chart or diagram from the last answer">Make a chart or diagram</button>
+      </div></details>
+      <section id="speechConfirm" class="speechConfirm hidden" aria-labelledby="speechConfirmTitle">
+        <strong id="speechConfirmTitle">Check what I heard</strong>
+        <input id="speechDraft" type="text" aria-label="Editable speech transcript" />
+        <div><button type="button" id="useSpeech">Use this</button><button type="button" id="retrySpeech">Try again</button><button type="button" id="cancelSpeech">Cancel</button></div>
+      </section>
+      <p id="liveStatus" class="liveStatus" role="status" aria-live="polite" aria-atomic="true">Ready for a Manx question.</p>
+      <button id="retryVoice" type="button" class="mini" hidden>Enable voice feedback</button>
+      <div class="transcriptHeading"><span>Conversation</span><span>Newest first</span></div>
+      <div id="transcript" class="transcript" role="log" aria-live="off" aria-label="Conversation, newest first"></div>
+      <button id="olderTurns" type="button" class="olderTurns hidden">Load earlier messages</button>
+    </section>
+  </main>
+
+  <section id="discoveryWorkspace" class="mani-discovery-workspace" aria-label="Explore the Isle of Man" hidden>
+    <manx-discovery data-context="local"><p>Opening the island’s topic map…</p></manx-discovery>
+  </section>
+
+  <template id="turnTpl">
+    <article class="turn">
+      <p class="q"></p>
+      <p class="scopeNotice hidden"></p>
+      <div class="a"></div>
+      <p class="interpretation hidden"></p>
+      <div class="action hidden"></div>
+      <div class="metaRow hidden">
+        <span class="badge status"></span>
+        <details class="answerDetails"><summary>Answer details</summary><span class="badge conf"></span><span class="badge cost muted"></span></details>
+        <span class="fb"><button class="up" title="Right and useful" aria-label="Mark answer right and useful">👍</button><button class="down" title="Wrong or unhelpful" aria-label="Mark answer wrong or unhelpful">👎</button></span>
+      </div>
+      <div class="answerActions hidden" aria-label="More ways to use this answer">
+        <button type="button" class="deliberate">Think harder with MOMM</button>
+      </div>
+      <section class="nextSteps hidden" aria-label="Suggested next step"></section>
+      <section class="researchStatus hidden" aria-label="Research progress and result">
+        <div class="researchProgressLive srOnly" role="status" aria-live="polite" aria-atomic="true"></div>
+        <div class="researchOutcomeLive srOnly" role="status" aria-live="polite" aria-atomic="true"></div>
+        <div class="researchBody"></div>
+      </section>
+      <section class="reviewConversation hidden" aria-label="MOMM conversation: one lane and one voice per reviewing model"></section>
+      <details class="reviewRecord"><summary>Full MOMM review record</summary><section class="reviewSummary hidden" aria-label="MOMM review summary"></section></details>
+      <section class="canvasWorkspace hidden" aria-label="Visualisation"></section>
+      <details class="sourceDetails hidden"><summary>Sources</summary><p class="sourceLabel hidden"></p><ul class="sources hidden"></ul></details>
+      <p class="note hidden"></p>
+    </article>
+  </template>
+
+  <footer class="siteFoot">
+    <p class="footMark"><span aria-hidden="true">◆</span> Mannin is part of the <a href="https://42.uk/" rel="noopener">42.uk</a> universe.</p>
+    <p class="footPowered">Powered by <a href="https://42.uk/" rel="noopener">Promptus</a>, the local voice and model workshop behind <a href="https://42.uk/" rel="noopener">42.uk</a>.</p>
+    <p class="footTag">RELAX. IT’S ALREADY OVER.</p>
+  </footer>
+
+  <script type="module" src="/discovery/explorer.mjs"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

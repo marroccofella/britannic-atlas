@@ -1,0 +1,10 @@
+.mannin-family { display:flex; flex-wrap:wrap; align-items:center; gap:16px; padding:12px clamp(16px,4vw,48px); background:#0d1916; color:#dbece5; border-bottom:1px solid #345d4f; font:14px/1.5 system-ui,sans-serif; position:relative; z-index:70; }
+.mannin-family>a { color:#a2e7c9; font-weight:600; text-decoration:none; letter-spacing:.06em; }
+.mannin-family>a span { display:block; font-size:12px; font-weight:400; letter-spacing:0; }
+.mannin-family>span { margin-left:auto; }
+.mannin-family summary { cursor:pointer; padding:8px 12px; border:1px solid #547565; border-radius:4px; }
+.mannin-family details>div { position:absolute; top:100%; right:16px; width:min(400px,calc(100vw - 32px)); max-height:70vh; overflow:auto; padding:20px; background:#11251d; border:1px solid #547565; box-shadow:0 16px 32px #0006; }
+.mannin-family details p { margin:0 0 12px; color:#c2d2c9; }
+.mannin-family details a { display:block; color:#effff5; padding:12px 0; text-decoration:none; border-top:1px solid #345d4f; }
+.mannin-family a:focus-visible,.mannin-family summary:focus-visible { outline:2px solid #8ce6bf; outline-offset:4px; }
+@media(max-width:620px) { .mannin-family>span { display:none; } .mannin-family details { margin-left:auto; } }

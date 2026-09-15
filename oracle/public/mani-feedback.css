@@ -1,0 +1,39 @@
+/* Shared with the standalone SVG export; colours and motion use live state. */
+[data-mani-state] { --mani-accent: #7dffc4; }
+[data-mani-state="starting"] { --mani-accent: #ffd477; }
+[data-mani-state="thinking"], [data-mani-state="finishing"] { --mani-accent: #73bcff; }
+/* A shared SVG instance keeps the feedback registered to every leg and detail.
+   Hidden at rest; input is prominent and output is softer beside the speech orb. */
+.mani-outline { opacity: clamp(0, calc(var(--mani-input, 0) * .72 + var(--mani-energy, 0) * .2 + var(--mani-articulation, 0) * .14), .92); pointer-events: none; }
+.mani-zone-a, .mani-sector-a { --zone: var(--mani-zone-0, 0); --zone-colour: var(--mani-accent); }
+.mani-zone-b, .mani-sector-b { --zone: var(--mani-zone-1, 0); --zone-colour: var(--mani-accent); }
+.mani-zone-c, .mani-sector-c { --zone: var(--mani-zone-2, 0); --zone-colour: var(--mani-accent); }
+[data-mani-state="speaking"] :is(.mani-zone-a,.mani-sector-a) { --zone-colour: #7dffc4; }
+[data-mani-state="speaking"] :is(.mani-zone-b,.mani-sector-b) { --zone-colour: #73bcff; }
+[data-mani-state="speaking"] :is(.mani-zone-c,.mani-sector-c) { --zone-colour: #ffd477; }
+.mani-zone-halo { fill: var(--zone-colour); filter: blur(24px); opacity: calc(var(--zone) * .42); }
+.mani-zone-ring { fill: #071b13; stroke: var(--zone-colour); stroke-width: calc(3 + var(--zone) * 5); }
+.mani-zone-light { fill: var(--zone-colour); opacity: calc(.1 + var(--zone) * .9); filter: drop-shadow(0 0 18px var(--zone-colour)); }
+.mani-core { opacity: calc(.38 + var(--mani-energy, 0) * .62); }
+.mani-sectors { fill: none; stroke-width: 9; stroke-linecap: round; }
+.mani-sectors path { stroke: var(--zone-colour); filter: drop-shadow(0 0 12px var(--zone-colour)); opacity: calc(.12 + var(--zone) * .88); }
+.orb.finishing .mani-guides { opacity: .6; color: var(--blue); }
+.orb.finishing .label { color: #acd8ff; border-color: #487ca3; }
+.motionNotice { display: none; background: #16241c; border: 1px solid #537d64; border-radius: 8px; color: #b9e7ca; padding: .55rem; font-size: .875rem; }
+.voicePanel:has([data-mani-motion="reduced"]) .motionNotice { display: block; }
+/* Explicit motion choice covers CSS transforms as well as JS rotation. */
+[data-mani-motion="reduced"] :is(.mani-aura,.mani-speech-ring,.mani-core,.mani-bloom) { transform: none !important; }
+[data-mani-motion="full"] .mani-aura { transform: scale(calc(.9 + var(--mani-energy, 0) * .65 + var(--mani-articulation, 0) * .12)); }
+[data-mani-motion="full"] .mani-core { transform: scale(calc(1 + var(--mani-energy, 0) * .18 + var(--mani-articulation, 0) * .18)); }
+[data-mani-motion="full"] .mani-bloom { transform: scale(calc(.65 + var(--mani-articulation, 0) * .6)); }
+[data-mani-motion="full"] .mani-speech-ring { transform: scale(calc(.78 + var(--mani-articulation, 0) * .34)); }
+@media (max-width: 800px) { .motionNotice { grid-column: 1 / -1; } }
+/* Circular output effects never masquerade as listening or idle activity. */
+[data-mani-state]:not([data-mani-state="speaking"]) :is(.mani-ambient,.mani-guides,.mani-aura,.mani-bloom,.mani-speech-ring,.mani-sectors,.mani-zone) { visibility: hidden; opacity: 0; }
+[data-mani-state="listening"] .mani-outline {
+  opacity: calc(.08 + var(--mani-input, 0) * .92);
+  filter: url(#maniTraceGlow) brightness(calc(1 + var(--mani-input, 0) * .8)) drop-shadow(0 0 10px #7dffc4);
+}
+[data-mani-state="wake"] .mani-outline { opacity: .12; }
+[data-mani-state="thinking"] .mani-art { color: #73bcff; }
+[data-mani-motion="reduced"] .mani-leg { transform: none !important; }

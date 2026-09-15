@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "atlas",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "port": 3000
+    },
+    {
+      "name": "oracle",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "oracle"],
+      "port": 4242
+    }
+  ]
+}

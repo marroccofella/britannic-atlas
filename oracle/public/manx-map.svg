@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrammatic map of the Isle of Man</title>
+  <desc id="desc">The Isle of Man with Douglas, Ramsey, Peel, Castletown, Port Erin, Port St Mary, the Calf of Man, Kitterland and Chicken Rock labelled. Not for navigation.</desc>
+  <rect width="720" height="920" fill="#071b22"/>
+  <g opacity=".12" stroke="#f4e8c7"><path d="M0 115h720M0 230h720M0 345h720M0 460h720M0 575h720M0 690h720M0 805h720"/><path d="M90 0v920M180 0v920M270 0v920M360 0v920M450 0v920M540 0v920M630 0v920"/></g>
+  <path d="M332 52 C397 77 433 126 438 190 C443 250 406 286 417 342 C430 403 473 438 448 506 C425 568 382 602 373 667 C366 718 329 758 281 771 C244 746 229 703 241 651 C252 603 220 568 218 515 C216 462 250 426 235 372 C220 319 242 280 260 239 C279 196 269 144 292 98 Z" fill="#d8d0ae" stroke="#f0c66b" stroke-width="4"/>
+  <path d="M282 771 C306 792 319 812 314 840 C290 854 265 850 245 832 C247 804 259 786 282 771 Z" fill="#d8d0ae" stroke="#f0c66b" stroke-width="3"/>
+  <ellipse cx="274" cy="782" rx="9" ry="6" fill="#f0c66b"/>
+  <circle cx="293" cy="873" r="7" fill="#f0c66b"/>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#f8f2e3" font-size="18">
+    <g><circle cx="434" cy="415" r="7" fill="#ff7567"/><path d="M441 415h92" stroke="#ff7567"/><text x="543" y="421">Douglas</text></g>
+    <g><circle cx="421" cy="181" r="7" fill="#ff7567"/><path d="M428 181h91" stroke="#ff7567"/><text x="529" y="187">Ramsey</text></g>
+    <g><circle cx="237" cy="397" r="7" fill="#ff7567"/><path d="M230 397h-89" stroke="#ff7567"/><text x="79" y="403">Peel</text></g>
+    <g><circle cx="368" cy="678" r="7" fill="#ff7567"/><path d="M375 678h94" stroke="#ff7567"/><text x="479" y="684">Castletown</text></g>
+    <g><circle cx="253" cy="731" r="7" fill="#ff7567"/><path d="M246 731h-97" stroke="#ff7567"/><text x="65" y="737">Port Erin</text></g>
+    <g><circle cx="337" cy="744" r="7" fill="#ff7567"/><path d="M344 744h105" stroke="#ff7567"/><text x="459" y="750">Port St Mary</text></g>
+    <g><path d="M271 783h-103" stroke="#f0c66b"/><text x="50" y="789">Kitterland</text></g>
+    <g><path d="M270 824h-102" stroke="#f0c66b"/><text x="48" y="830">Calf of Man</text></g>
+    <g><path d="M300 873h93" stroke="#f0c66b"/><text x="403" y="879">Chicken Rock</text></g>
+  </g>
+  <g transform="translate(620 62)" font-family="Segoe UI,Arial,sans-serif" fill="#f0c66b"><text x="0" y="0" font-size="22" font-weight="700">N</text><path d="M8 14v58M8 14l-9 15M8 14l9 15" stroke="#f0c66b" stroke-width="3" fill="none"/></g>
+  <text x="38" y="50" fill="#f0c66b" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700">ELLAN VANNIN · ISLE OF MAN</text>
+  <text x="38" y="894" fill="#9fb0b0" font-family="Segoe UI,Arial,sans-serif" font-size="14">DIAGRAMMATIC ORIENTATION — NOT FOR NAVIGATION</text>
+</svg>

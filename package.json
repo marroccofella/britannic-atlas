@@ -1,0 +1,61 @@
+{
+  "name": "britannica-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vinext dev",
+    "build": "vinext build",
+    "start": "vinext start",
+    "test": "npm run build && node --test \"tests/*.test.mjs\"",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "oracle": "node --experimental-strip-types --disable-warning=ExperimentalWarning oracle/start.mjs",
+    "oracle:test": "node --experimental-strip-types --disable-warning=ExperimentalWarning --test \"oracle/tests/**/*.test.mjs\"",
+    "oracle:lint": "eslint oracle",
+    "oracle:check": "npm run oracle:test && npm run oracle:lint",
+    "oracle:dream": "node --disable-warning=ExperimentalWarning oracle/dream.mjs",
+    "oracle:verify-sources": "node --disable-warning=ExperimentalWarning oracle/tools/verify-sources.mjs",
+    "oracle:index": "node --disable-warning=ExperimentalWarning oracle/tools/manx-index.mjs",
+    "discovery:sync": "node tools/sync-discovery.mjs",
+    "oracle:verify": "node --experimental-strip-types --disable-warning=ExperimentalWarning oracle/tools/verify-mani.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.54.7",
+    "@eslint/js": "9.39.4",
+    "@huggingface/transformers": "3.8.1",
+    "@next/eslint-plugin-next": "16.2.6",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.34",
+    "cheerio": "1.2.0",
+    "eslint": "9.39.4",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "16.4.0",
+    "react-server-dom-webpack": "19.3.0",
+    "robots-parser": "3.0.1",
+    "sqlite-vec": "0.1.9",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.59.3",
+    "vinext": "1.0.0-beta.9",
+    "vite": "8.3.0",
+    "wrangler": "4.131.0"
+  },
+  "overrides": {
+    "@huggingface/transformers": {
+      "sharp": "0.35.4"
+    }
+  },
+  "type": "module"
+}
